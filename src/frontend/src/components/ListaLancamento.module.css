@@ -1,0 +1,21 @@
+
+.positivo {
+    color: #007bff;
+}
+
+.negativo {
+    color: red;
+}
+
+.right {
+    text-align: right !important;
+}
+
+.naopago {
+    color: #939393;
+    font-style:italic;
+}
+
+.pago {
+    color: #000;
+}
