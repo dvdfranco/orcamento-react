@@ -7,9 +7,9 @@ namespace OrcamentoApi.Controllers
     [Route("api/[controller]")]
     public class MemoPadraoController : ControllerBase
     {
-        private readonly Services.MemoPadraoService _service;
+        private readonly Services.IMemoPadraoService _service;
 
-        public MemoPadraoController(Services.MemoPadraoService service)
+        public MemoPadraoController(Services.IMemoPadraoService service)
         {
             _service = service;
         }

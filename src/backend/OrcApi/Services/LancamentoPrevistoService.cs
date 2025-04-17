@@ -3,7 +3,7 @@ using Orcamento.Models.Parameters;
 
 namespace OrcamentoApi.Services
 {
-    public class LancamentoPrevistoService
+    public class LancamentoPrevistoService: ILancamentoPrevistoService
     {
         private readonly Data.LancamentoPrevistoRepo _repo;
         private readonly Data.CategoriaRepo _catRepo;

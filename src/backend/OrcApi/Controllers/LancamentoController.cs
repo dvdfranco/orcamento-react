@@ -8,9 +8,9 @@ namespace OrcamentoApi.Controllers
     [Route("api/[controller]")]
     public class LancamentoController : ControllerBase
     {
-        private readonly Services.LancamentoService _service;
+        private readonly Services.ILancamentoService _service;
 
-        public LancamentoController(Services.LancamentoService service)
+        public LancamentoController(Services.ILancamentoService service)
         {
             _service = service;
         }

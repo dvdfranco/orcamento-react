@@ -6,9 +6,9 @@ namespace OrcamentoApi.Controllers
     [Route("api/[controller]")]
     public class LiveController : ControllerBase
     {
-        private readonly Services.CategoriaService _s;
-        private readonly Services.SetupService _setup;
-        public LiveController(Services.CategoriaService s, Services.SetupService setup)
+        private readonly Services.ICategoriaService _s;
+        private readonly Services.ISetupService _setup;
+        public LiveController(Services.ICategoriaService s, Services.ISetupService setup)
         {
             _s = s;
             _setup = setup;
@@ -23,7 +23,7 @@ namespace OrcamentoApi.Controllers
             //return Ok("CORS BITCH! 1");
         }
 
-        [HttpPost]
+        [HttpPost("SetupDatabase")]
         public async Task<IActionResult> SetupDatabaseFirstUse()
         {
             await _setup.SetupDatabase();

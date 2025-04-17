@@ -3,7 +3,7 @@ using Orcamento.Models.Parameters;
 
 namespace OrcamentoApi.Services
 {
-    public class CategoriaService
+    public class CategoriaService: ICategoriaService
     {
         private readonly Data.CategoriaRepo _repo;
         public CategoriaService(Data.ICategoriaRepo repo)

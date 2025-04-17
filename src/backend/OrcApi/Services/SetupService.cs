@@ -3,7 +3,7 @@ using Orcamento.Models.Parameters;
 
 namespace OrcamentoApi.Services
 {
-    public class SetupService
+    public class SetupService : ISetupService
     {
         private readonly Data.ISetupRepo _repo;
         public SetupService(Data.ISetupRepo repo)

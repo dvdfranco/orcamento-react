@@ -2,7 +2,7 @@
 
 namespace OrcamentoApi.Services
 {
-    public class MemoPadraoService
+    public class MemoPadraoService: IMemoPadraoService
     {
         private readonly Data.IMemoPadraoRepo _repo;
         public MemoPadraoService(Data.IMemoPadraoRepo repo)

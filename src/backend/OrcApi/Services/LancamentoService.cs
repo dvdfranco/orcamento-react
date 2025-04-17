@@ -5,22 +5,22 @@ using OrcamentoApi.Data;
 
 namespace OrcamentoApi.Services
 {
-    public class LancamentoService
+    public class LancamentoService: ILancamentoService
     {
         private readonly ILancamentoRepo _repo;
-        private readonly LancamentoPrevistoService _lspService;
+        private readonly ILancamentoPrevistoService _lspService;
         private readonly ICategoriaRepo _catRepo;
         private readonly IContaRepo _contaRepo;
         private readonly IMemoPadraoRepo _memoPadraoRepo;
         private readonly AppSettings _appSettings;
-        private readonly SaldoService _saldoService;
+        private readonly ISaldoService _saldoService;
 
         public LancamentoService(AppSettings appSettings, Data.ILancamentoRepo repo,
-            Data.ICategoriaRepo catRepo, 
-            Data.IContaRepo contaRepo, 
-            Data.IMemoPadraoRepo memoRepo, 
-            Services.LancamentoPrevistoService lspService, 
-            SaldoService saldoService)
+            ICategoriaRepo catRepo, 
+            IContaRepo contaRepo, 
+            IMemoPadraoRepo memoRepo, 
+            ILancamentoPrevistoService lspService, 
+            ISaldoService saldoService)
         {
             this._repo = repo;
             this._catRepo = catRepo;
@@ -194,7 +194,7 @@ namespace OrcamentoApi.Services
             return (await this.Search(new LancamentoParameters() { IncludePrevistos = false, Ids = newIds.ToArray() })).ToList();
         }
 
-        internal async Task<object> GetCalcSaldos(DateTime mesFrom, DateTime mesTo)
+        public async Task<object> GetCalcSaldos(DateTime mesFrom, DateTime mesTo)
         {
             var ultimoSaldo = (await _saldoService.Search(new SaldoParameters() { MesTo = mesTo })).OrderByDescending(x => x.Data).FirstOrDefault();
 
@@ -228,9 +228,7 @@ namespace OrcamentoApi.Services
             };
         }
 
-
-
-        internal async Task Upload(string ofxContent)
+        public async Task Upload(string ofxContent)
         {
             var ofx = this.ReadOfx(ofxContent);
 

@@ -32,13 +32,13 @@ builder.Services.AddScoped<ISaldoAnteriorRepo, SaldoAnteriorRepo>();
 builder.Services.AddScoped<IMemoPadraoRepo, MemoPadraoRepo>();
 builder.Services.AddScoped<ISetupRepo, SetupRepo>();
 
-builder.Services.AddScoped<LancamentoService>();
-builder.Services.AddScoped<LancamentoPrevistoService>();
-builder.Services.AddScoped<SaldoService>();
-builder.Services.AddScoped<CategoriaService>();
-builder.Services.AddScoped<ParcelaCartaoService>();
-builder.Services.AddScoped<MemoPadraoService>();
-builder.Services.AddScoped<SetupService>();
+builder.Services.AddScoped<ILancamentoService, LancamentoService>();
+builder.Services.AddScoped<ILancamentoPrevistoService, LancamentoPrevistoService>();
+builder.Services.AddScoped<ISaldoService, SaldoService>();
+builder.Services.AddScoped<ICategoriaService, CategoriaService>();
+builder.Services.AddScoped<IParcelaCartaoService, ParcelaCartaoService>();
+builder.Services.AddScoped<IMemoPadraoService, MemoPadraoService>();
+builder.Services.AddScoped<ISetupService, SetupService>();
 
 //CORS: precisa ter aqui no services e la embaixo no app.usecors:
 const string CORS_POLICY = "cors, bitch!";

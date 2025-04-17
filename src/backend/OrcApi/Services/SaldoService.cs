@@ -3,7 +3,7 @@ using Orcamento.Models.Parameters;
 
 namespace OrcamentoApi.Services
 {
-    public class SaldoService
+    public class SaldoService: ISaldoService
     {
         private readonly Data.ISaldoRepo _repo;
         private readonly Data.ISaldoAnteriorRepo _repoSaldoAnterior;
@@ -28,7 +28,7 @@ namespace OrcamentoApi.Services
             await _repo.Update(item);
         }
 
-        internal async Task<SaldoAnterior> SearchSaldoAnterior(SaldoParameters parameters)
+        public async Task<SaldoAnterior> SearchSaldoAnterior(SaldoParameters parameters)
         {
             return (await _repoSaldoAnterior.Search(parameters)).SingleOrDefault();
         }

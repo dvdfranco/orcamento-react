@@ -8,9 +8,9 @@ namespace OrcamentoApi.Controllers
     [Route("api/[controller]")]
     public class ParcelaCartaoController : ControllerBase
     {
-        private readonly Services.ParcelaCartaoService _service;
+        private readonly Services.IParcelaCartaoService _service;
 
-        public ParcelaCartaoController(Services.ParcelaCartaoService service)
+        public ParcelaCartaoController(Services.IParcelaCartaoService service)
         {
             _service = service;
         }

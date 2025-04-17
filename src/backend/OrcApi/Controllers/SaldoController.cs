@@ -8,9 +8,9 @@ namespace OrcamentoApi.Controllers
     [Route("api/[controller]")]
     public class SaldoController : ControllerBase
     {
-        private readonly Services.SaldoService _service;
+        private readonly Services.ISaldoService _service;
 
-        public SaldoController(Services.SaldoService service)
+        public SaldoController(Services.ISaldoService service)
         {
             _service = service;
         }

@@ -3,7 +3,7 @@ using Orcamento.Models.Parameters;
 
 namespace OrcamentoApi.Services
 {
-    public class ParcelaCartaoService
+    public class ParcelaCartaoService: IParcelaCartaoService
     {
         private readonly Data.IParcelaCartaoRepo _repo;
         public ParcelaCartaoService(Data.IParcelaCartaoRepo repo)
@@ -26,7 +26,7 @@ namespace OrcamentoApi.Services
             await _repo.Add(item);
         }
 
-        internal async Task Update(ParcelaCartao item)
+        public async Task Update(ParcelaCartao item)
         {
             await _repo.Update(item);
         }
